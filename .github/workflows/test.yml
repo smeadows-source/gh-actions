@@ -15,3 +15,11 @@ jobs:
         run: npm install
       - name: Run test
         run: npm test
+  deploy: 
+     runs-on: ubuntu-latest
+     steps:
+        - name: Build project
+          run: npm run build
+        - name: Application deployment
+          run: echo "Application deployed"
+       
