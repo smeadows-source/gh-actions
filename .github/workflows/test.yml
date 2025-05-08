@@ -16,10 +16,19 @@ jobs:
       - name: Run test
         run: npm test
   deploy: 
-     runs-on: ubuntu-latest
-     steps:
-        - name: Build project
-          run: npm run build
-        - name: Application deployment
-          run: echo "Application deployed"
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v3
+      - name: Install NodeJS
+        uses: actions/setup-node@v3
+        with: 
+          node-version: 18
+      - name: Install Dependencies
+        run: npm install      
+      - name: Build project
+        run: npm run build
+      - name: Application deployment
+        run: echo "Application deployed"
        
