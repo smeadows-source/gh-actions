@@ -7,6 +7,9 @@ jobs:
     runs-on:  ubuntu-latest
     steps:
       - name: Print Greeting
-        run: echo "Hello Steven Meadows"
+        run: |
+          echo "First output"
+          echo "Second output" 
+          echo "Hello Steven Meadows"
       - name: Print Goodbye
         run: echo "Goodbye Steven Meadows"
